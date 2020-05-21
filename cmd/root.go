@@ -1,20 +1,20 @@
 package cmd
 
 import (
+    "os"
     "time"
 
     "github.com/sirupsen/logrus"
     "github.com/spf13/cobra"
     "github.com/spf13/viper"
     "golang.org/x/crypto/ssh/terminal"
-    "golang.org/x/sys/unix"
 )
 
 var rootCmd = &cobra.Command{
     Use:   "todos",
     Short: "Todo Web Application",
     PersistentPreRun: func(cmd *cobra.Command, args []string) {
-        if !terminal.IsTerminal(unix.Stdout) {
+        if !terminal.IsTerminal(int(os.Stdout.Fd())) {
             logrus.SetFormatter(&logrus.JSONFormatter{})
         } else {
             logrus.SetFormatter(&logrus.TextFormatter{
