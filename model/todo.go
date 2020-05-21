@@ -1,11 +1,11 @@
 package model
 
 type Todo struct {
-	Model
+    Model
 
-	Name string `json:"name"`
-	Done bool   `json:"done"`
+    Name string `json:"name"`
+    Done bool   `json:"done"`
 
-	User   User `json:"-"`
-	UserID uint `json:"-"`
+    User   User `json:"-"`
+    UserID uint `json:"-"`
 }

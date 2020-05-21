@@ -1,7 +1,7 @@
 package main
 
-import "github.com/theaaf/todos/cmd"
+import "github.com/giangpt/todos/cmd"
 
 func main() {
-	cmd.Execute()
+    cmd.Execute()
 }

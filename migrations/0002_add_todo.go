@@ -1,15 +1,15 @@
 package migrations
 
 import (
-	"github.com/jinzhu/gorm"
-	"github.com/pkg/errors"
+    "github.com/jinzhu/gorm"
+    "github.com/pkg/errors"
 )
 
 var addTodoMigration_0002 = &Migration{
-	Number: 2,
-	Name:   "Add todo",
-	Forwards: func(db *gorm.DB) error {
-		const addUserSQL = `
+    Number: 2,
+    Name:   "Add todo",
+    Forwards: func(db *gorm.DB) error {
+        const addUserSQL = `
 			CREATE TABLE todos(
  				id serial PRIMARY KEY,
  				name text NOT NULL,
@@ -25,11 +25,11 @@ var addTodoMigration_0002 = &Migration{
 			);
 		`
 
-		err := db.Exec(addUserSQL).Error
-		return errors.Wrap(err, "unable to create todos table")
-	},
+        err := db.Exec(addUserSQL).Error
+        return errors.Wrap(err, "unable to create todos table")
+    },
 }
 
 func init() {
-	Migrations = append(Migrations, addTodoMigration_0002)
+    Migrations = append(Migrations, addTodoMigration_0002)
 }
